@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Atividade Modelo para Avaliação Prática de Java Script </title>
+	<style type="text/css">
+		#textoar{
+			width: 300px;
+			height: 25px;
+			border-radius: 10px;
+		    border: 2px solid green;
+		    text-align: center;
+		}
+		h1{
+			text-align: center;
+		}
+		body{
+			margin: 0;
+  			background-color: #dfe6e9;
+  			height: 500px;
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+  			position: relative;
+  			font-family: Arial, Helvetica, sans-serif;
+		}
+		.hide{
+			display: none;
+		}
+		.check{
+			border: 2px solid green;
+			border-radius: 10px;
+		}
+		button{
+			border: 2px solid green;
+			border-radius: 10px;
+			background-color: white;
+  			padding: 15px 32px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 16px;
+  			margin: 4px 2px;
+  			cursor: pointer;
+		}
+		button:hover{
+			cursor: pointer;
+			opacity: 0.6;
+		}
+	</style>
+</head>
+<body>
+<h1> Sistema de Avaliação </h1>	
+<fieldset>
+	<form>
+		<div><b>1.</b> Quais cursos são ofertados na EEEP Amélia Figueiredo de Lavor? </div>
+		<input type="textarea" name="texto" id="textoar">
+		<div><b>2.</b> Marque as opções que possui os sistemas de numerações novas que aprendemos no 1º Ano de Informática. </div>
+		<input type="checkbox" name="sistema" class="check1" id="check01">
+		<label for="num01"> Sistema Octal </label>
+		<br>
+		<br>
+		<input type="checkbox" name="sistema" class="check1" id="check02">
+		<label for="num02"> Sistema Binário </label>
+		<br>
+		<br>
+		<input type="checkbox" name="sistema" class="check1" id="check03">
+		<label for="num03"> Sistema Decimal </label>
+		<br>
+		<br>
+		<input type="checkbox" name="sistema" class="check1" id="check04">
+		<label for="num04"> Algarismos Hexadecimal </label>
+		<br>
+		<br>
+		<div><b>3.</b> Qual o produto abaixo é mais adequado para limpar uma memória RAM? </div>
+		<input type="radio" name="prod01" class="check" id="error01">
+		<label for="prod01"> Álcool Isopropílico </label>
+		<br>
+		<br>
+		<input type="radio" name="prod02" class="check" id="certo01">
+		<label for="prod02"> Limpa Contato </label>
+		<br>
+		<br>
+		<input type="radio" name="prod03" class="check" id="error02">
+		<label for="prod03"> Álcool 70% </label>
+		<br>
+		<br>
+		<input type="radio" name="prod04" class="check" id="error03">
+		<label for="prod04"> Água </label>
+		<div><b>4.</b> Podemos afirmar que o modo de funcionamento de memória RAM em DUAL CHANEL só pode ser feito com pares de módulos de memória. Marque se a afirmação é verdade ou falsa. </div>
+		<input type="radio" name="desi01" class="check" id="verd">
+		<label for="desi01"> Verdadeira </label>
+		<br>
+		<br>
+		<input type="radio" name="desi02" class="check" id="fals">
+		<label for="desi02"> Falsa </label>
+		<br>
+		<br>
+	</form>
+    <button type="button" onclick="pegarDados()" id="button"><b> Corrigir </b></button>
+</fieldset>
+<fieldset class="hide">
+    <legend><b> Seu Resultado: </b></legend>
+    <div id="resp01"></div>
+    <div id="res1"></div>
+    <div id="res2"></div>
+    <div id="res3"></div>
+    <div id="res4"></div>
+    <div id="resp03"></div>
+    <div id="resp04"></div>	
+</fieldset> 
+</body>
+ <script type="text/javascript">
+ function pegarDados(){
+ 	document.querySelector(".hide").style.display = "block";
+	
+	let resp01 = document.getElementById("textoar").value;
+    document.getElementById("resp01").innerHTML = "1º Questão: - " + resp01 + " ✔";
+    
+    let chk01 = document.querySelector("#check01");
+  	let chk02 = document.querySelector("#check02");
+  	let chk03 = document.querySelector("#check03");
+    let chk04 = document.querySelector("#check04");
+    
+  if (chk01.checked) {
+  	document.querySelector("#res1").value;
+    document.querySelector("#res1").innerHTML = "2º Questão:\n - Sistema Octal";
+  }else if(chk02.checked){
+  	document.querySelector("#res2").value;
+  	document.querySelector("#res2").innerHTML = "- Sistema Binário";
+  }else if(chk03.checked){
+  	document.querySelector("#res3").value;
+  	document.querySelector("#res3").innerHTML = "- Sistema Decimal";
+  }else if(chk04.checked){
+  	document.querySelector("#res4").value;
+  	document.querySelector("#res4").innerHTML = "- Algarismos Hexadecimal";
+  }else{
+  	document.querySelector("#res2").innerHTML = "2º Questão: - Nenhuma das opções marcadas." + " ✅";
+  }
+
+  let prod01 = document.getElementById("error01");
+  let prod02 = document.getElementById("certo01");
+  let prod03 = document.getElementById("error02");
+  let prod04 = document.getElementById("error03");
+   if (prod01.checked) {
+    document.getElementById("resp03").innerHTML = "3º Questão: - Álcool Isopropílico" + " ✖";
+  }else if(prod02.checked){
+  	document.getElementById("resp03").innerHTML = "3º Questão: - Limpa Contato" + " ✔";
+  }else if(prod03.checked){
+  	document.getElementById("resp03").innerHTML = "3º Questão: - Álcool 70%" + " ✖";
+  }else if(prod04.checked){
+  	document.getElementById("resp03").innerHTML = "3º Questão: - Água" + " ✖";
+  }else{
+  	document.getElementById("resp03").innerHTML = "3º Questão: - Nenhuma das opções marcadas." + " ✅";
+  }
+
+  let desic01 = document.getElementById("verd");
+  let desic02 = document.getElementById("fals");
+   if (desic01.checked) {
+   	document.getElementById("resp04").innerHTML = "4º Questão: - Verdadeira " + "✔";
+   }else if (desic02.checked){
+   	document.getElementById("resp04").innerHTML = "4º Questão: - Falsa " + "✖";
+   }else{
+   	document.getElementById("resp04").innerHTML = "4º Questão: - Nenhuma das opções marcadas." + " ✅"
+   }
+ 
+}
+	let identf = "Desenvolvido por Lucas Rychardson Mourão Ancelmo 2º Ano de Informática";
+	console.log(identf);	
+ </script>
+</html>
